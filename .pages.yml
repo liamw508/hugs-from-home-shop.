@@ -108,3 +108,8 @@ content:
       - name: about_image
         label: About section photo
         type: image
+      - name: postage_flat
+        label: Standard UK delivery per order (£)
+        type: number
+        required: true
+        description: "One fixed charge on the entire basket, whatever products the customer orders."
