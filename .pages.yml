@@ -1,0 +1,110 @@
+# Hugs From Home • Edit the products and homepage from https://app.pagescms.org
+media:
+  input: images
+  output: /images
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe
+
+content:
+  - name: products
+    label: Shop products
+    type: file
+    path: data/products.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Unique product ID
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+        description: "For new items enter something unique, e.g. easter-bunny-2027. Don't change an existing ID."
+      - name: name
+        label: Product name
+        type: string
+        required: true
+      - name: price
+        label: Price in GBP (without £ sign)
+        type: number
+        required: true
+      - name: category
+        label: Category
+        type: string
+        required: true
+        description: "For example Paint your own, Handmade gifts, Diamond art, Fridge magnets. New categories appear automatically."
+      - name: season
+        label: Season or collection
+        type: string
+        description: "Use Everyday, Christmas, Easter, Valentine's, Mother's Day, etc."
+      - name: image
+        label: Product photo
+        type: image
+        required: true
+        description: "Choose an existing photo or upload a new photo from your phone."
+      - name: description
+        label: Short description
+        type: text
+        required: true
+      - name: note
+        label: What's included / colour note
+        type: text
+        description: "For painting kits include: Paint colours may vary from those shown."
+      - name: published
+        label: Show on website
+        type: boolean
+        description: "Switch off to hide a seasonal product, without deleting it."
+      - name: in_stock
+        label: In stock
+        type: boolean
+        description: "Switch off to show Sold out and block basket additions."
+
+  - name: homepage
+    label: Homepage and seasonal banner
+    type: file
+    path: data/site.json
+    format: json
+    fields:
+      - name: announcement
+        label: Top announcement
+        type: string
+      - name: hero_eyebrow
+        label: Small heading above title
+        type: string
+      - name: hero_heading
+        label: Big homepage title
+        type: string
+      - name: hero_highlight
+        label: Second title line (italic)
+        type: string
+      - name: hero_description
+        label: Homepage introduction
+        type: text
+      - name: hero_image_primary
+        label: First homepage photo
+        type: image
+      - name: hero_image_secondary
+        label: Second homepage photo
+        type: image
+      - name: seasonal_label
+        label: Seasonal collection name
+        type: string
+        description: "Must match a product's season field, e.g. Easter."
+      - name: seasonal_promo_show
+        label: Show seasonal banner
+        type: boolean
+        description: "Turn off after Christmas if you don't have a replacement campaign yet."
+      - name: seasonal_eyebrow
+        label: Seasonal small heading
+        type: string
+      - name: seasonal_heading
+        label: Seasonal main headline
+        type: string
+      - name: seasonal_description
+        label: Seasonal banner description
+        type: text
+      - name: seasonal_button
+        label: Seasonal shop button text
+        type: string
+      - name: about_image
+        label: About section photo
+        type: image
